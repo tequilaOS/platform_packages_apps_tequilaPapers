@@ -27,7 +27,7 @@ endif
 
 LOCAL_USE_AAPT2 := true
 
-LOCAL_PACKAGE_NAME := Backgrounds
+LOCAL_PACKAGE_NAME := tequilaPapers
 
 LOCAL_PRODUCT_MODULE := true
 
