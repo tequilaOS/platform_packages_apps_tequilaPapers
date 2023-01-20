@@ -18,5 +18,6 @@
     <array name="wallpapers" translatable="false">
         <item>giant</item>
         <item>halo</item>
+        <item>amoled</item>
     </array>
 </resources>
