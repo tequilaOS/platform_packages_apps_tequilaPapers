@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 
+from math import floor
 from PIL import Image
 
 path = os.path.dirname(os.path.realpath(__file__))
@@ -21,9 +22,16 @@ def generate_smallvariants(resource):
 
         # Save the wallpaper with 1/4 size to wallpaper_small_path
         with Image.open(os.path.join(wallpapers_path, wallpaper)) as img:
-            size = int(img.width / 4), int(img.height / 4)
+            new_size = 640
 
-            img_small = img.resize(size, Image.ANTIALIAS)
+            width, height = img.size
+
+            left = floor((width - new_size)/2)
+            top = floor((height - new_size)/2)
+            right = floor((width + new_size)/2)
+            bottom = floor((height + new_size)/2)
+
+            img_small = img.crop((left, top, right, bottom))
             img_small.save(wallpaper_small_path, "JPEG")
 
 def clean(wallpapers_path):
