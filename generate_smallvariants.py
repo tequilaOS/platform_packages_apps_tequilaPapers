@@ -19,11 +19,9 @@ def generate_smallvariants(resource):
         wallpaper_small = os.path.splitext(wallpaper)[0] + "_small.jpg"
         wallpaper_small_path = os.path.join(wallpapers_path, wallpaper_small)
 
-        # Save the wallpaper with 1/4 size to wallpaper_small_path
+        # Save the wallpaper with 480x480px size to wallpaper_small_path
         with Image.open(os.path.join(wallpapers_path, wallpaper)) as img:
-            size = int(img.width / 4), int(img.height / 4)
-
-            img_small = img.resize(size, Image.Resampling.LANCZOS)
+            img_small = img.crop((300, 960,780, 1440))
             img_small.save(wallpaper_small_path, "JPEG")
 
 def clean(wallpapers_path):
